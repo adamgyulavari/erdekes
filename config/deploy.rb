@@ -3,7 +3,7 @@ lock '3.4.0'
 
 set :application, 'erdekes'
 set :deploy_user, 'deployer'
-set :repo_url, 'git@github.com:adamgyulavari/lc_calory_server.git'
+set :repo_url, 'git@github.com:adamgyulavari/erdekes.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
