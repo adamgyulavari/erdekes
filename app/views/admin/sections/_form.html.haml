@@ -1,0 +1,8 @@
+= semantic_form_for [:admin, @section] do |f|
+  = f.inputs name: "#{controller.action_name.capitalize} Section" do
+    = f.input :course_id, as: :hidden, input_html: { value: @course.id }
+    = f.input :name
+    = f.input :visibility, as: :select, collection: ['private', 'public']
+  = f.actions do
+    = f.action :submit, as: :button, button_html: { class: 'btn btn-primary' }
+    = f.action :cancel, as: :link

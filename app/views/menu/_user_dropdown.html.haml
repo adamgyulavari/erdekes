@@ -1,0 +1,5 @@
+= render layout: 'menu/dropdown_item', locals: { name: user.name, url: user.profile.image ? user.profile.image : image_path('jondoe-small.png') } do
+  = render 'menu/menu_item', link: edit_profile_path(user.profile), icon: 'pencil', name: 'Profilom', controllers: ['profile']
+  - if user.is_a? Teacher
+    = render 'menu/menu_item', link: admin_root_path, icon: 'wrench', name: 'Tanári', controllers: ['profile']
+  = render 'menu/menu_item', link: send("destroy_#{user.class.name.underscore}_session_path"), method: :delete, icon: 'log-out', name: 'Kilépés'

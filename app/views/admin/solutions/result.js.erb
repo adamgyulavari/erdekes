@@ -1,0 +1,1 @@
+$("#solution-result-<%= @solution.id %>").html("<%= escape_javascript render(:partial => 'admin/missions/result', :locals => { :solution => @solution }) %>");

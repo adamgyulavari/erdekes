@@ -1,0 +1,18 @@
+hu:
+  breadcrumbs:
+    admin:
+      courses:
+        root: 'Tárgyak'
+        index: 'Tárgyak'
+      sections:
+        root: 'Tárgyak'
+        index: 'Egységek'
+      lessons:
+        root: 'Tárgyak'
+        index: 'Órák'
+      missions:
+        root: 'Tárgyak'
+        index: 'Feladatok'
+      solutions:
+        root: 'Tárgyak'
+        index: 'Megoldások'

@@ -1,0 +1,7 @@
+toolbar:
+  - undo redo | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | outdent indent | table | image
+  - removeformat | styleselect | link
+plugins:
+  - image
+  - link
+  - table

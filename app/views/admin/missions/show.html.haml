@@ -1,0 +1,29 @@
+%h1= @mission.name
+
+%h2 Feltöltött megoldások
+.section
+  %ul
+    - @mission.solutions.without_examples.each do |solution|
+      %li.mission{ id: "solution-#{solution.id}" }
+        .row
+          .col-md-9
+            - if solution.source_stored?
+              = link_to "#{solution.student.full_name} (#{solution.student.name})", solution.source.url
+            - else
+              = "#{solution.student.full_name} (#{solution.student.name})"
+            %p= timeago_tag solution.updated_at
+          .col-md-3
+            .pull-right{ id: "solution-result-#{solution.id}" }
+              = render 'result', solution: solution
+
+
+%p= @mission.description.html_safe
+- unless @mission.example_solution
+  = link_to new_admin_solution_path(mission_id: @mission), class: 'btn btn-lg btn-block btn-primary' do
+    %span.glyphicon.glyphicon-plus-sign
+    Upload example solution
+- else
+  = link_to edit_admin_solution_path(@mission.example_solution), class: 'btn btn-lg btn-block btn-warning' do
+    %span.glyphicon.glyphicon-plus-edit
+    Edit example solution
+

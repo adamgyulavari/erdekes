@@ -1,0 +1,16 @@
+- flag ||= nil
+- icon ||= nil
+- url ||= nil
+
+%li.dropdown
+  %a{ :href => '#', :class => 'dropdown-toggle', :data => { :toggle => 'dropdown' }, :style => 'padding-top:5px;padding-bottom:5px' }
+    - if flag
+      %span{ :class => "flag-icon flag-icon-#{flag}"}
+    - elsif !icon.nil?
+      %span{ :class => "glyphicon glyphicon-#{icon}"}
+    - elsif !url.nil?
+      = image_tag url, class: 'img-circle', style: 'width:40px;height:40px'
+    = name
+    %b.caret
+  %ul.dropdown-menu
+    = yield

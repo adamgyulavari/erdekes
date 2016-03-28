@@ -1,0 +1,11 @@
+%tr
+  %td
+    = link_to section.name, admin_section_path(section)
+    - if section.new_solutions > 0
+      %span.badge.badge-danger= section.new_solutions
+  %td
+    .pull-right
+      = link_to edit_admin_section_path(section), class: 'btn btn-warning', title: 'Edit' do
+        %span.glyphicon.glyphicon-edit
+      = link_to admin_section_path(section), method: :delete, confirm: 'Are you sure?', class: 'btn btn-danger', title: 'Delete' do
+        %span.glyphicon.glyphicon-trash

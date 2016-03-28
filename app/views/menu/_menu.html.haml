@@ -1,0 +1,14 @@
+%nav.navbar.navbar-fixed-top.navbar-gray
+  .container
+
+    .navbar-header
+      %button.navbar-toggle{ data: { toggle: 'collapse', target: '#navbar' } }
+        %span.sr-only Toggle Navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      .navbar-brand
+        érdekes
+
+    #navbar.collapse.navbar-collapse
+      = render 'menu/menu_items'

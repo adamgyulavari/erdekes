@@ -1,0 +1,18 @@
+%ul.nav.navbar-nav.nav-main
+  = render 'menu/menu_item', link: root_path, icon: 'home', name: 'Főoldal', controllers: ['main']
+  /= render 'menu/menu_item', link: events_path, icon: 'calendar', name: 'Események', controllers: ['events']
+  /= render 'menu/menu_item', link: root_path, icon: 'th-large', name: 'Képek', controllers: ['gallery']
+  /= render 'menu/menu_item', link: play_lists_path, icon: 'play-circle', name: 'Zenék', controllers: ['music_list']
+  /= render 'menu/menu_item', link: users_path, icon: 'user', name: 'Felhasználók', controllers: ['users']
+
+/ site switcher
+%ul.nav.navbar-nav.navbar-right
+  - if student_signed_in?
+    = render 'menu/user_dropdown', user: current_student
+  - elsif teacher_signed_in?
+    = render 'menu/user_dropdown', user: current_teacher
+  - else
+    - OmniAuth::Builder.providers.each do |provider|
+      = link_to "Belépés diákként", omniauth_authorize_path(provider), class: "btn btn-primary btn-#{provider.to_s}"
+
+

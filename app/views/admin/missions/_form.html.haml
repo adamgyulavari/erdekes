@@ -1,0 +1,12 @@
+= semantic_form_for [:admin, @mission] do |f|
+  = f.inputs name: "#{controller.action_name.capitalize} Lesson" do
+    = f.input :section_id, as: :hidden, input_html: { value: @section.id }
+    = f.input :name
+    = f.input :deadline, as: :datetime_select
+    = f.input :description, input_html: { class: 'tinymce' }
+    = f.input :objectives, as: :file
+    = f.input :visibility, as: :select, collection: ['private', 'public']
+  = f.actions do
+    = f.action :submit, as: :button, button_html: { class: 'btn btn-primary' }
+    = f.action :cancel, as: :link
+= tinymce

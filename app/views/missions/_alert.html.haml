@@ -1,0 +1,14 @@
+- type = mission.near_deadline? ? 'danger' : 'warning'
+- size = @missions_bd.size > 2 ? 4 : 12/@missions_bd.size
+- if mission.solution_for(current_student).nil?
+  %div{ class: "col-md-#{size}" }
+    .alert.alert-dismissable{ class: "alert-#{type}" }
+      %button.close{ 'data-dismiss' => 'alert', 'aria-hidden'=> 'true' }
+        x
+      %h4= "#{mission.name} - #{mission.section.course.name}"
+      %p
+        Ennek a feladatnak a határideje
+        %span= timeago_tag mission.deadline
+        %span{ style: mission.near_deadline? ? 'font-weight: bold;' : '' }= FIGYULIM[type].sample
+      %p
+        = link_to 'Megnézem és Feltöltöm', mission_path(mission), class: "btn btn-#{type}"

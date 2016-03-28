@@ -1,0 +1,2 @@
+- for i in 0..5
+  = link_to "#{i}", result_admin_solution_path(solution, result: i), remote: true, class: 'btn ' + (solution.result == i ? 'btn-default' : 'btn-primary')

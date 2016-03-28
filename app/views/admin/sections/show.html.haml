@@ -1,0 +1,51 @@
+%h1= "#{@section.course.name} - #{@section.name}"
+.row
+  .col-md-6
+    %table.table.table-striped.table-hover
+      %thead
+        %tr
+          %th Lessons
+          %th
+            .pull-right
+      %tbody
+        - @section.lessons.each do |lesson|
+          %tr
+            %td
+              = link_to lesson.name, lesson_path(lesson)
+            %td
+              .pull-right
+                = link_to edit_admin_lesson_path(lesson), class: 'btn btn-warning', title: 'Edit' do
+                  %span.glyphicon.glyphicon-edit
+                = link_to admin_lesson_path(lesson), method: :delete, confirm: 'Are you sure?', class: 'btn btn-danger', title: 'Delete' do
+                  %span.glyphicon.glyphicon-trash
+
+    =# will_paginate @courses, renderer: BootstrapPagination::Rails
+    = link_to new_admin_lesson_path(section_id: @section), class: 'btn btn-lg btn-block btn-primary' do
+      %span.glyphicon.glyphicon-plus-sign
+      New Lesson
+  .col-md-6
+    %table.table.table-striped.table-hover
+      %thead
+        %tr
+          %th Missions
+          %th
+            .pull-right
+      %tbody
+        - @section.missions.each do |mission|
+          %tr
+            %td
+              = link_to admin_mission_path(mission) do
+                = mission.name
+                - if mission.new_solutions > 0
+                  %span.badge.badge-danger= mission.new_solutions
+            %td
+              .pull-right
+                = link_to edit_admin_mission_path(mission), class: 'btn btn-warning', title: 'Edit' do
+                  %span.glyphicon.glyphicon-edit
+                = link_to admin_mission_path(mission), method: :delete, confirm: 'Are you sure?', class: 'btn btn-danger', title: 'Delete' do
+                  %span.glyphicon.glyphicon-trash
+
+    =# will_paginate @courses, renderer: BootstrapPagination::Rails
+    = link_to new_admin_mission_path(section_id: @section), class: 'btn btn-lg btn-block btn-primary' do
+      %span.glyphicon.glyphicon-plus-sign
+      New Mission

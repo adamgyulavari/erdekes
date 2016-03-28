@@ -1,0 +1,8 @@
+.container
+  %h2 Bejelentkezés
+  -# raise 'e'
+  .col-sm-offset-2.col-md-5
+    %br/
+    - OmniAuth::Builder.providers.each do |provider|
+      = link_to "#{provider.to_s.titleize} belépés", omniauth_authorize_path(provider), class: "btn btn-primary btn-lg btn-block btn-#{provider.to_s}"
+      %br/

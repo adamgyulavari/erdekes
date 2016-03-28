@@ -1,0 +1,11 @@
+%table.table.table-striped.table-hover
+  %thead
+    %tr
+      %th Name
+      %th
+        .pull-right
+  %tbody
+    = render @sections
+= link_to new_admin_section_path(course_id: @course), class: 'btn btn-lg btn-block btn-primary' do
+  %span.glyphicon.glyphicon-plus-sign
+  New Section

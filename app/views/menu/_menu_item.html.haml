@@ -1,0 +1,26 @@
+- controllers ||= []
+- actions ||= nil
+- flag ||= nil
+- icon ||= nil
+- url ||= nil
+
+- if actions == nil
+  %li{ :class => ('active' if controllers.include?(params[:controller])) }
+    = link_to "#{link}", :method => method ||= nil do
+      - if flag
+        %span{ :class => "flag-icon flag-icon-#{flag}"}
+      - elsif !icon.nil?
+        %span{ :class => "glyphicon glyphicon-#{icon}"}
+      - elsif !url.nil?
+        = image_tag url, class: 'media-object'
+      = name
+- else
+  %li{ :class => ('active' if (controllers.include?(params[:controller]) && actions.include?(params[:action]))) }
+    = link_to "#{link}", :method => method ||= nil do
+      - if flag
+        %span{ :class => "flag-icon flag-icon-#{flag}"}
+      - elsif !icon.nil?
+        %span{ :class => "glyphicon glyphicon-#{icon}"}
+      - elsif !url.nil?
+        = image_tag url, class: 'media-object'
+      = name

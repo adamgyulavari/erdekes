@@ -1,0 +1,8 @@
+= semantic_form_for [:admin, @solution] do |f|
+  = f.inputs name: "#{controller.action_name.capitalize} Solution for #{@mission.name}" do
+    = f.input :mission_id, as: :hidden, input_html: { value: @mission.id }
+    = f.input :source, as: :file
+    = f.input :visibility, as: :select, collection: ['private', 'public']
+  = f.actions do
+    = f.action :submit, as: :button, button_html: { class: 'btn btn-primary' }
+    = f.action :cancel, as: :link

@@ -1,0 +1,10 @@
+%h2 Korábbi megoldás
+.section
+  %ul
+    %li.mission
+      .row
+        .col-md-12
+          - if @solution.source_stored?
+            = link_to @solution.source.send(:uid), @solution.source.url
+          %p= timeago_tag @solution.updated_at
+= render 'form'

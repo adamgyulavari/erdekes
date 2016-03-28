@@ -1,0 +1,88 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body
+  font-family: 'Roboto', sans-serif
+
+h2
+  font-weight: 100
+
+.alert
+  p
+    span
+      font-size: 16px
+      font-weight: bold
+
+.section
+  ul
+    list-style: none
+    padding-left: 0
+
+    li
+      -moz-border-radius: 5px
+      -webkit-border-radius: 5px
+      -khtml-border-radius: 5px
+      border-radius: 5px
+      border-left: 5px solid
+      padding: 5px 10px
+      box-shadow: 1px 1px 2px #ccc
+
+      .title
+        font-size: 14px
+
+      p
+        color: #666
+        font-size: 12px
+        margin: 0
+
+      &.lesson
+        border-left-color: #37bc9b
+      &.mission
+        border-left-color: #efa50b
+.btn-google_oauth2
+  font-family: 'Roboto', sans-serif
+  font-weight: 500
+  font-size: 15px
+  background-color: #d64136
+  border-color: #d64136
+  background-image: image-url("google.png")
+  background-position: 2px 2px
+  background-repeat: no-repeat
+  margin-top: 8px
+  padding: 7px 6px 7px 35px
+
+  &:hover
+    background-color: #ea5b51
+    border-color: #ea5b51
+
+.navbar-gray
+  background-color: #eeeeee
+
+
+  .navbar-brand
+    font-weight: 300
+    font-size: 30px
+
+
+  .nav-main
+    li
+      a
+        &:hover
+          margin-bottom: -5px
+          border-bottom: 5px solid #3bafda
+
+ul
+  &.dropdown-menu
+    background-color: #eee
+
+    li
+      a
+        color: #428bca
+
+        &:hover
+          color: white
+          background-color: #428bca
+
+.htp
+  display: none

@@ -1,0 +1,23 @@
+.container
+  %h2 Profilom szerkesztése
+  -# raise 'e'
+  = form_for @profile, class: 'form-horizontal' do |f|
+    .form-group.row
+      = f.label :first_name, "Keresztnév", class: 'col-sm-2 control-label'
+      .col-md-5
+        = f.text_field :first_name, class: 'form-control'
+    .form-group.row
+      = f.label :last_name, "Vezetéknév", class: 'col-sm-2 control-label'
+      .col-md-5
+        = f.text_field :last_name, class: 'form-control'
+    .form-group.row
+      = f.label :nick_name, "Becenév", class: 'col-sm-2 control-label'
+      .col-md-5
+        = f.text_field :nick_name, class: 'form-control'
+    .form-group.row
+      = f.label :avatar, "Képcsere", class: 'col-sm-2 control-label'
+      .col-md-5
+        = f.file_field :avatar, class: 'form-control'
+    .form-group
+      .col-sm-offset-2.col-md-5
+        = f.submit "Mentés", class: 'btn btn-info btn-block btn-lg'
