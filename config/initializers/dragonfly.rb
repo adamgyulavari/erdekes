@@ -8,17 +8,17 @@ Dragonfly.app.configure do
 
   url_format "/media/:job/:name"
 
-  unless Rails.env.production?
-    datastore :file,
-      root_path: Rails.root.join('public/system/dragonfly', Rails.env),
-      server_root: Rails.root.join('public')
-  else
-    datastore :s3,
+  # unless Rails.env.production?
+  #   datastore :file,
+  #     root_path: Rails.root.join('public/system/dragonfly', Rails.env),
+  #     server_root: Rails.root.join('public')
+  # else
+    datastore S3DataStore.new(
       bucket_name: 'erdekes-heroku',
       access_key_id: ENV['amazon_access_key'],
       secret_access_key: ENV['amazon_secret_key'],
-      region: 'eu-west-1'
-  end
+      region: 'eu-west-1')
+  # end
 end
 
 # Logger

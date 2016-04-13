@@ -59,6 +59,7 @@ gem 'capistrano-bundler'
 
 # if you are using RBENV
 gem 'capistrano-rbenv', "~> 2.0"
+gem 'capistrano-rails-console'
 
 group :development do
   gem 'better_errors'
